@@ -25,7 +25,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/puntawatsub/SoftwareEng_Temp_converter.git'
+                url: 'https://github.com/puntawatsub/localization_demo.git'
             }
         }
 
@@ -61,7 +61,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .'
+                sh 'docker buildx build --platform linux/amd64 -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .'
             }
         }
 //
