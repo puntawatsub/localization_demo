@@ -61,7 +61,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker buildx build --platform linux/amd64 -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .'
+                sh 'docker build -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .'
             }
         }
 //
